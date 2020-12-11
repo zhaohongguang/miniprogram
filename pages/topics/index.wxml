@@ -1,0 +1,11 @@
+<!--pages/topics/index.wxml-->
+
+<view wx:for="{{dataArray}}">
+  <view>
+    <block>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{item.user.avatar_url}}" mode="cover"></image>
+      <text class="topic-title">{{item.title}}</text>
+    </block>
+    <!-- {{item.title}} -->
+  </view>
+</view>

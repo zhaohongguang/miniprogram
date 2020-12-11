@@ -1,0 +1,11 @@
+/* pages/topics/index.wxss */
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.topic-title {
+  color: #aaa;
+}
