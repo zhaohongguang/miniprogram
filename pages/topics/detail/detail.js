@@ -1,36 +1,55 @@
-// pages/topics/index.js
+// pages/topics/detail/detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dataArray:[]
+    topic: { },
+    replies: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.requestData('')
+    this.requestTopicDetail(options.id)
+    this.requestTopicReplies(options.id)
   },
 
+
   /**
-   * 请求数据
+   * 请求数据topic详情信息
    */
-  requestData: function (a) {
+  requestTopicDetail: function (id) {
     var that = this;
-    console.log(that.data.maxtime)
     console.log(that.data.dataArray)
     wx.request({
-      url: 'https://ruby-china.org/api/v3/topics',
+      url: 'https://ruby-china.org/api/v3/topics/' + id,
       data: { },
       method: 'GET',
       success: function (res) {
         console.log(res.data)
         that.setData({
-          // 拼接数组
-          dataArray: that.data.dataArray.concat(res.data.topics),
+          topic: res.data.topic,
+          loadingHidden: true,
+          //maxtime: res.data.info.maxtime
+        })
+      }
+    })
+  },
+
+  requestTopicReplies: function(topic_id) {
+    var that = this;
+    console.log(that.data.dataArray)
+    wx.request({
+      url: 'https://ruby-china.org/api/v3/topics/' + topic_id + "/replies",
+      data: { },
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          replies: res.data.replies,
           loadingHidden: true,
           //maxtime: res.data.info.maxtime
         })
@@ -86,5 +105,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-  
 })

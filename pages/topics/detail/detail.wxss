@@ -1,0 +1,75 @@
+/* pages/topics/detail/detail.wxss */
+rich-text {
+  word-break: break-all;
+}
+
+.page {
+  width: 100%;
+}
+.page__hd{
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+  padding: 5rpx 25rpx 5rpx 30rpx;
+}
+.page__desc {
+  font-size: 26rpx;
+  color: #999;
+  display: flex;
+}
+
+.page__desc text{
+  display: block;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+
+.page__bd {
+  padding: 5rpx 25rpx 5rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+}
+
+.topic-replies {
+  margin: 10rpx 0 0 30rpx;
+}
+
+.reply-detail {
+  display: flex;
+  padding: 20rpx 0rpx 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+}
+
+.topic-replies .reply-detail .user-cover {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  margin-left: 5rpx;
+}
+
+.reply-detail .reply {
+  flex: 1;
+}
+
+.reply-detail .reply .user-login, .reply-detail .reply .reply-index {
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+.reply-detail .reply .login-display {
+  font-size: 26rpx;
+  display: flex;
+}
+
+.reply-detail .reply .reply-index {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.reply-detail .reply-bd {
+  font-size: 28rpx;
+  background-color: #F2F2F2;
+  padding: 15rpx;
+  margin-right: 20rpx;
+}

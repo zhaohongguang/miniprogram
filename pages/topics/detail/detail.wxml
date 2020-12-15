@@ -1,0 +1,39 @@
+<!--pages/topics/detail/detail.wxml-->
+<scroll-view class="page" scroll-x="true">
+  <view class="page__hd">
+    <view class="page__title">{{topic.title}}</view>
+    <view class="page__desc">
+      <text>{{topic.user.login}}</text>
+      <text class="node-name" wx:if="{{topic.node_name.length > 0}}">· {{topic.node_name}}</text>
+      
+      <text class="likes-count" wx:if="{{topic.likes_count > 0}}">· {{topic.likes_count}} 赞</text>
+      
+      <text class="replies-count" wx:if="{{topic.replies_count > 0}}">· {{topic.replies_count}} 条回复</text>
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <rich-text nodes="{{topic.body_html}}"></rich-text>
+  </view>
+
+  <view class="topic-replies" wx:for="{{replies}}">
+    <block>
+      <navigator url=''>
+        <view class='reply-detail'>
+          <image class='user-cover' src='{{item.user.avatar_url}}'></image>
+          
+          <view class='reply'>
+            <view class="login-display">
+              <text class='user-login'>{{item.user.login}}</text>
+              <text class='reply-index'>#{{index+1}}</text>
+            </view>
+          
+            <view class="reply-bd">
+              <rich-text nodes="{{item.body_html}}"></rich-text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</scroll-view>
