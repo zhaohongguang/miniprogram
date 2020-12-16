@@ -5,26 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataArray:[]
+    dataArray:[],
+    offset: 0,
+    limit: 20
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.requestData('')
+    this.requestData(this.data.offset, this.data.limit)
   },
 
   /**
    * 请求数据
    */
-  requestData: function (a) {
+  requestData: function (offset, limit) {
     var that = this;
     console.log(that.data.maxtime)
     console.log(that.data.dataArray)
     wx.request({
       url: 'https://ruby-china.org/api/v3/topics',
-      data: { },
+      data: { offset: offset,
+              limit: limit},
       method: 'GET',
       success: function (res) {
         console.log(res.data)
@@ -36,6 +39,12 @@ Page({
         })
       }
     })
+  },
+
+ //下拉刷新数据
+  onscrolltolower() {
+    this.data.offset += 20;
+    this.requestData(this.data.offset, this.data.limit)
   },
 
   /**

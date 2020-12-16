@@ -14,10 +14,10 @@
   "tabBar":{
     "backgroundColor":"#7B68EE",
     "list": [{
-      "iconPath":"",
-      "selectedIconPath":"",
+      "iconPath":"image/tabbar_icon/ruby_china.png",
+      "selectedIconPath":"image/tabbar_icon/ruby_china.png",
       "pagePath": "pages/topics/index",
-      "text": "社区"
+      "text": "Rbuy 社区"
     },{
       "iconPath":"",
       "selectedIconPath":"",
