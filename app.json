@@ -12,12 +12,14 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar":{
-    "backgroundColor":"#7B68EE",
+    "backgroundColor":"#FFF",
+    "color": "#000",
+    "selectedColor": "#32CD32",
     "list": [{
       "iconPath":"image/tabbar_icon/ruby_china.png",
       "selectedIconPath":"image/tabbar_icon/ruby_china.png",
       "pagePath": "pages/topics/index",
-      "text": "Rbuy 社区"
+      "text": "Ruby 社区"
     },{
       "iconPath":"",
       "selectedIconPath":"",
