@@ -1,0 +1,25 @@
+<!--pages/testerhome/index.wxml-->
+<scroll-view bindscrolltolower="onscrolltolower" scroll-y="{{true}}">
+  <view class="topics-list">
+    <block wx:for="{{dataArray}}">
+      <navigator url='detail/show?id={{item.id}}'>
+        <view class='item'>
+          <image class='poster' src="https://testerhome.com{{item.user.avatar_url}}"></image>
+          <view class='meta'>
+            <text class='title'>{{item.title}}</text>
+            <!-- <text class='sub-title'>{{item.node_name}}</text> -->
+            <view class='artists' wx:if="{{item.user.name.length > 0}}">
+              <text>作者：</text>
+              <text >{{item.user.login}}</text>
+            </view>
+            <view class='rating' >
+              <text>{{item.node_name}}</text>
+              <text wx:if="{{item.likes_count > 0}}">·{{item.likes_count}} 赞</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</scroll-view>
+

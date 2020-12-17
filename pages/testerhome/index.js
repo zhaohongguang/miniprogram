@@ -1,4 +1,4 @@
-// pages/topics/detail/detail.js
+// pages/testerhome/index.js
 const app = getApp();
 
 Page({
@@ -7,33 +7,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    topic: { },
-    replies: []
+    dataArray:[],
+    offset: 0,
+    limit: 20
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.requestTopicDetail(options.id)
-    this.requestTopicReplies(options.id)
+    this.requestData(this.data.offset, this.data.limit)
   },
-
 
   /**
-   * 请求数据topic详情信息
+   * 请求数据
    */
-  requestTopicDetail: function (id) {
+  requestData: function (offset, limit) {
     var that = this;
+    console.log(that.data.maxtime)
     console.log(that.data.dataArray)
     wx.request({
-      url: app.globalData.ruby_china_url + 'topics/' + id,
-      data: { },
+      url: app.globalData.testerhome_url + 'topics',
+      data: { offset: offset,
+              limit: limit},
       method: 'GET',
       success: function (res) {
         console.log(res.data)
         that.setData({
-          topic: res.data.topic,
+          // 拼接数组
+          dataArray: that.data.dataArray.concat(res.data.topics),
           loadingHidden: true,
           //maxtime: res.data.info.maxtime
         })
@@ -41,22 +43,10 @@ Page({
     })
   },
 
-  requestTopicReplies: function(topic_id) {
-    var that = this;
-    console.log(that.data.dataArray)
-    wx.request({
-      url: app.globalData.ruby_china_url + 'topics/' + topic_id + "/replies",
-      data: { },
-      method: 'GET',
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          replies: res.data.replies,
-          loadingHidden: true,
-          //maxtime: res.data.info.maxtime
-        })
-      }
-    })
+   //下拉刷新数据
+   onscrolltolower() {
+    this.data.offset += 20;
+    this.requestData(this.data.offset, this.data.limit)
   },
 
   /**

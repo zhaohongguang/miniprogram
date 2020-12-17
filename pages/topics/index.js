@@ -1,4 +1,6 @@
 // pages/topics/index.js
+const app = getApp();
+
 Page({
 
   /**
@@ -25,7 +27,7 @@ Page({
     console.log(that.data.maxtime)
     console.log(that.data.dataArray)
     wx.request({
-      url: 'https://ruby-china.org/api/v3/topics',
+      url: app.globalData.ruby_china_url + 'topics',
       data: { offset: offset,
               limit: limit},
       method: 'GET',

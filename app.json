@@ -2,6 +2,8 @@
   "pages":[
     "pages/topics/index",
     "pages/topics/detail/detail",
+    "pages/testerhome/index",
+    "pages/testerhome/detail/show",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -20,6 +22,11 @@
       "selectedIconPath":"image/tabbar_icon/ruby_china.png",
       "pagePath": "pages/topics/index",
       "text": "Ruby 社区"
+    },{
+      "iconPath":"image/tabbar_icon/testerhome.png",
+      "selectedIconPath":"image/tabbar_icon/testerhome.png",
+      "pagePath": "pages/testerhome/index",
+      "text": "TesterHome 社区"
     },{
       "iconPath":"",
       "selectedIconPath":"",
