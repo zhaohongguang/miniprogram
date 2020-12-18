@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show_url: "detail/detail?id=",
+    dimain_image: '',
     dataArray:[],
     offset: 0,
     limit: 20
