@@ -5,6 +5,7 @@ rich-text {
 
 .page {
   width: 100%;
+  height: 1300rpx;
 }
 .page__hd{
   border-bottom: 1rpx solid #eee;

@@ -8,7 +8,9 @@ Page({
    */
   data: {
     topic: { },
-    replies: []
+    replies: [],
+    offset: 0,
+    limit: 20
   },
 
   /**
@@ -46,18 +48,31 @@ Page({
     console.log(that.data.dataArray)
     wx.request({
       url: app.globalData.ruby_china_url + 'topics/' + topic_id + "/replies",
-      data: { },
+      data: {
+              offset: that.data.offset,
+              limit: that.data.limit
+       },
       method: 'GET',
       success: function (res) {
         console.log(res.data)
-        that.setData({
-          replies: res.data.replies,
-          loadingHidden: true,
-          //maxtime: res.data.info.maxtime
-        })
+        console.log(res)
+        console.log(res.statusCode)
+        if (res.statusCode==200) {
+          that.setData({
+            replies: that.data.replies.concat(res.data.replies),
+            loadingHidden: true,
+            //maxtime: res.data.info.maxtime
+          })
+        }
       }
     })
   },
+
+  //下拉刷新数据
+  onscrolltolower() {
+    this.data.offset += 20;
+    this.requestTopicReplies('')
+  },  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

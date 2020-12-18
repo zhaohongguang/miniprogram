@@ -1,5 +1,5 @@
 <!--pages/topics/detail/detail.wxml-->
-<scroll-view class="page" scroll-x="true">
+<scroll-view class="page" scroll-x="true" bindscrolltolower="onscrolltolower" scroll-y="{{true}}">
   <view class="page__hd">
     <view class="page__title">{{topic.title}}</view>
     <view class="page__desc">
