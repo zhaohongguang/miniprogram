@@ -5,3 +5,7 @@
   width: 100%;
   height: 1300rpx;
 }
+
+.nav-tar-list {
+  text-align: center;
+}

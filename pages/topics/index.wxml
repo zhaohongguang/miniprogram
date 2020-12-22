@@ -1,6 +1,13 @@
 <!--pages/topics/index.wxml-->
 <import src="../../template/template.wxml"/>
 
+<view class="nav-tar-list">
+  <button class="mini-btn" size="mini" type="default" bindtap="toggleLoading">默认</button>
+  <button class="mini-btn" size="mini" type="default" bindtap="changeColor">精华</button>
+  <button class="mini-btn" size="mini" type="default" bindtap="changeBgColor">招聘</button>
+  <button class="mini-btn" size="mini" type="default" bindtap="changeBgColor">招聘</button>
+</view>
+
 <scroll-view bindscrolltolower="onscrolltolower" scroll-y="{{true}}">
   <view class="topics-list">
     <block wx:for="{{dataArray}}">
