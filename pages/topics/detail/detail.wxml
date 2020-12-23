@@ -1,20 +1,8 @@
 <!--pages/topics/detail/detail.wxml-->
-<scroll-view class="page" scroll-x="true" bindscrolltolower="onscrolltolower" scroll-y="{{true}}">
-  <view class="page__hd">
-    <view class="page__title">{{topic.title}}</view>
-    <view class="page__desc">
-      <text>{{topic.user.login}}</text>
-      <text class="node-name" wx:if="{{topic.node_name.length > 0}}">· {{topic.node_name}}</text>
-      
-      <text class="likes-count" wx:if="{{topic.likes_count > 0}}">· {{topic.likes_count}} 赞</text>
-      
-      <text class="replies-count" wx:if="{{topic.replies_count > 0}}">· {{topic.replies_count}} 条回复</text>
-    </view>
-  </view>
+<import src="../../../template/template.wxml"/>
 
-  <view class="page__bd">
-    <rich-text nodes="{{topic.body_html}}"></rich-text>
-  </view>
+<scroll-view class="page" scroll-x="true" bindscrolltolower="onscrolltolower" scroll-y="{{true}}">
+  <template is="topic-body" data="{{topic}}"></template>
 
   <view class="topic-replies" wx:for="{{replies}}">
     <block>

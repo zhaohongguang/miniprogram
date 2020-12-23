@@ -9,6 +9,7 @@ Page({
   data: {
     topic: { },
     replies: [],
+    dimain_image: 'https://testerhome.com',
     offset: 0,
     limit: 20
   },

@@ -1,19 +1,37 @@
 <template name='topics-array'>
   <navigator url='{{show_url}}{{item.id}}'>
-        <view class='item'>
-          <image class='poster' src='{{dimain_image}}{{item.user.avatar_url}}'></image>
-          <view class='meta'>
-            <text class='title'>{{item.title}}</text>
-            <!-- <text class='sub-title'>{{item.node_name}}</text> -->
-            <view class='artists' wx:if="{{item.user.name.length > 0}}">
-              <text>作者：</text>
-              <text >{{item.user.login}}</text>
-            </view>
-            <view class='rating' >
-              <text>{{item.node_name}}</text>
-              <text wx:if="{{item.likes_count > 0}}">·{{item.likes_count}} 赞</text>
-            </view>
-          </view>
+    <view class='item'>
+      <image class='poster' src='{{dimain_image}}{{item.user.avatar_url}}'></image>
+      <view class='meta'>
+        <text class='title'>{{item.title}}</text>
+        <!-- <text class='sub-title'>{{item.node_name}}</text> -->
+        <view class='artists' wx:if="{{item.user.name.length > 0}}">
+          <text>作者：</text>
+          <text >{{item.user.login}}</text>
         </view>
-      </navigator>
+        <view class='rating' >
+          <text>{{item.node_name}}</text>
+          <text wx:if="{{item.likes_count > 0}}">·{{item.likes_count}} 赞</text>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</template>
+
+<template name='topic-body'>
+  <view class="page__hd">
+    <view class="page__title">{{topic.title}}</view>
+    <view class="page__desc">
+      <text>{{topic.user.login}}</text>
+      <text class="node-name" wx:if="{{topic.node_name.length > 0}}">· {{topic.node_name}}</text>
+      
+      <text class="likes-count" wx:if="{{topic.likes_count > 0}}">· {{topic.likes_count}} 赞</text>
+      
+      <text class="replies-count" wx:if="{{topic.replies_count > 0}}">· {{topic.replies_count}} 条回复</text>
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <rich-text nodes="{{topic.body_html}}"></rich-text>
+  </view>
 </template>
