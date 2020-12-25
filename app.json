@@ -28,8 +28,6 @@
       "pagePath": "pages/testerhome/index",
       "text": "TesterHome 社区"
     },{
-      "iconPath":"",
-      "selectedIconPath":"",
       "pagePath": "pages/index/index",
       "text": "我的"
     }]
