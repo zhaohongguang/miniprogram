@@ -17,7 +17,8 @@
             </view>
           
             <view class="reply-bd">
-              <rich-text nodes="{{item.body_html}}"></rich-text>
+              <wemark md="{{item.body}}" link highlight type="wemark"></wemark>
+              <!-- <rich-text nodes="{{item.body_html}}"></rich-text> -->
             </view>
           </view>
         </view>

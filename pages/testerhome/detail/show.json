@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "wemark": "../../../wemark/wemark"
+  },
+  "navigationBarTitleText": "详情",
+  "backgroundColor": "#FFFFE0"
 }
